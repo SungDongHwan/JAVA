@@ -2,6 +2,7 @@ package com.ruby.java.ch11;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Test04 {
 
@@ -23,6 +24,8 @@ public class Test04 {
 			FileInputStream fi = new FileInputStream("a.txt");
 			int c = fi.read();
 			System.out.println((char) c);
+			ArrayList<String> list = new ArrayList<String>();
+
 	
 	}
 

@@ -1,0 +1,174 @@
+
+java.lang.Object
+java.lang.String
+All Implemented Interfaces:
+Serializable, CharSequence, Comparable<String>, Constable, ConstantDesc
+public final class String
+extends Object
+implements Serializable, Comparable<String>, CharSequence, Constable, ConstantDesc
+The String class represents character strings. All string literals in Java programs, such as "abc", are implemented as instances of this class.
+Strings are constant; their values cannot be changed after they are created. String buffers support mutable strings. Because String objects are immutable they can be shared. For example:
+
+     String str = "abc";
+ 
+is equivalent to:
+
+     char data[] = {'a', 'b', 'c'};
+     String str = new String(data);
+ 
+Here are some more examples of how strings can be used:
+
+     System.out.println("abc");
+     String cde = "cde";
+     System.out.println("abc" + cde);
+     String c = "abc".substring(2, 3);
+     String d = cde.substring(1, 2);
+ 
+The class String includes methods for examining individual characters of the sequence, for comparing strings, for searching strings, for extracting substrings, and for creating a copy of a string with all characters translated to uppercase or to lowercase. Case mapping is based on the Unicode Standard version specified by the Character class.
+
+The Java language provides special support for the string concatenation operator ( + ), and for conversion of other objects to strings. For additional information on string concatenation and conversion, see The Java Language Specification.
+
+Unless otherwise noted, passing a null argument to a constructor or method in this class will cause a NullPointerException to be thrown.
+
+A String represents a string in the UTF-16 format in which supplementary characters are represented by surrogate pairs (see the section Unicode Character Representations in the Character class for more information). Index values refer to char code units, so a supplementary character uses two positions in a String.
+
+The String class provides methods for dealing with Unicode code points (i.e., characters), in addition to those for dealing with Unicode code units (i.e., char values).
+
+Unless otherwise noted, methods for comparing Strings do not take locale into account. The Collator class provides methods for finer-grain, locale-sensitive String comparison.
+
+Implementation Note:
+The implementation of the string concatenation operator is left to the discretion of a Java compiler, as long as the compiler ultimately conforms to The Java Language Specification. For example, the javac compiler may implement the operator with StringBuffer, StringBuilder, or java.lang.invoke.StringConcatFactory depending on the JDK version. The implementation of string conversion is typically through the method toString, defined by Object and inherited by all classes in Java.
+See Java Language Specification:
+15.18.1 String Concatenation Operator +
+Since:
+1.0
+See Also:
+Object.toString() StringBuffer StringBuilder Charset Serialized Form
+Field Summary
+Fields
+Modifier and Type
+Field
+Description
+static final Comparator<String>
+CASE_INSENSITIVE_ORDER
+A Comparator that orders String objects as by compareToIgnoreCase.
+Constructor Summary
+Constructors
+Constructor
+Description
+String()
+Initializes a newly created String object so that it represents an empty character sequence.
+String(byte[] bytes)
+Constructs a new String by decoding the specified array of bytes using the platform's default charset.
+String(byte[] ascii, int hibyte)
+Deprecated.
+This method does not properly convert bytes into characters.
+String(byte[] bytes, int offset, int length)
+Constructs a new String by decoding the specified subarray of bytes using the platform's default charset.
+String(byte[] ascii, int hibyte, int offset, int count)
+Deprecated.
+This method does not properly convert bytes into characters.
+String(byte[] bytes, int offset, int length, String charsetName)
+Constructs a new String by decoding the specified subarray of bytes using the specified charset.
+String(byte[] bytes, int offset, int length, Charset charset)
+Constructs a new String by decoding the specified subarray of bytes using the specified charset.
+String(byte[] bytes, String charsetName)
+Constructs a new String by decoding the specified array of bytes using the specified charset.
+String(byte[] bytes, Charset charset)
+Constructs a new String by decoding the specified array of bytes using the specified charset.
+String(char[] value)
+Allocates a new String so that it represents the sequence of characters currently contained in the character array argument.
+String(char[] value, int offset, int count)
+Allocates a new String that contains characters from a subarray of the character array argument.
+String(int[] codePoints, int offset, int count)
+Allocates a new String that contains characters from a subarray of the Unicode code point array argument.
+String(String original)
+Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string.
+String(StringBuffer buffer)
+Allocates a new string that contains the sequence of characters currently contained in the string buffer argument.
+String(StringBuilder builder)
+Allocates a new string that contains the sequence of characters currently contained in the string builder argument.
+Method Summary
+All MethodsStatic MethodsInstance MethodsConcrete MethodsDeprecated Methods
+Modifier and Type
+Method
+Description
+char
+charAt(int index)
+Returns the char value at the specified index.
+IntStream
+chars()
+Returns a stream of int zero-extending the char values from this sequence.
+int
+codePointAt(int index)
+Returns the character (Unicode code point) at the specified index.
+int
+codePointBefore(int index)
+Returns the character (Unicode code point) before the specified index.
+int
+codePointCount(int beginIndex, int endIndex)
+Returns the number of Unicode code points in the specified text range of this String.
+IntStream
+codePoints()
+Returns a stream of code point values from this sequence.
+int
+compareTo(String anotherString)
+Compares two strings lexicographically.
+int
+compareToIgnoreCase(String str)
+Compares two strings lexicographically, ignoring case differences.
+String
+concat(String str)
+Concatenates the specified string to the end of this string.
+boolean
+contains(CharSequence s)
+Returns true if and only if this string contains the specified sequence of char values.
+boolean
+contentEquals(CharSequence cs)
+Compares this string to the specified CharSequence.
+boolean
+contentEquals(StringBuffer sb)
+Compares this string to the specified StringBuffer.
+static String
+copyValueOf(char[] data)
+Equivalent to valueOf(char[]).
+static String
+copyValueOf(char[] data, int offset, int count)
+Equivalent to valueOf(char[], int, int).
+Optional<String>
+describeConstable()
+Returns an Optional containing the nominal descriptor for this instance, which is the instance itself.
+boolean
+endsWith(String suffix)
+Tests if this string ends with the specified suffix.
+boolean
+equals(Object anObject)
+Compares this string to the specified object.
+boolean
+equalsIgnoreCase(String anotherString)
+Compares this String to another String, ignoring case considerations.
+static String
+format(String format, Object... args)
+Returns a formatted string using the specified format string and arguments.
+static String
+format(Locale l, String format, Object... args)
+Returns a formatted string using the specified locale, format string, and arguments.
+String
+formatted(Object... args)
+Formats using this string as the format string, and the supplied arguments.
+byte[]
+getBytes()
+Encodes this String into a sequence of bytes using the platform's default charset, storing the result into a new byte array.
+void
+getBytes(int srcBegin, int srcEnd, byte[] dst, int dstBegin)
+Deprecated.
+This method does not properly convert characters into bytes.
+byte[]
+getBytes(String charsetName)
+Encodes this String into a sequence of bytes using the named charset, storing the result into a new byte array.
+byte[]
+getBytes(Charset charset)
+Encodes this String into a sequence of bytes using the given charset, storing the result into a new byte array.
+void
+getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)
+Copies c
