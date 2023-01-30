@@ -98,6 +98,7 @@ public class ArrayList정렬Merge {
 					data1 = iter1.next();
 					list3.add(data2);
 					data2 = iter2.next();
+					iter2.
 				}
 			}
 			System.out.println(list3);
